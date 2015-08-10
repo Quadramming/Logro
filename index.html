@@ -1,0 +1,77 @@
+<! DOCTYPE HTML>
+<html manifest="logro.manifest">
+	<head>	
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="apple-touch-icon" href="ico.png"/>
+		<link rel="apple-touch-startup-image" href="hello.png" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen, mobile" title="main" charset="utf-8">
+	
+		<title>Logro</title>
+				
+		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>	
+		<script type="text/javascript" src="weapons.js"></script>	
+	</head>
+	<body class="forbidSelect">
+		<table id="status">
+			<tr>
+				<td> Score: <span id="score"></span> </td>
+				<td> Avg: <span id="avg"></span> </td>
+				<td> Sum: <span id="sum"></span> </td>
+				<td> <a href="#" onclick="game.restart()"><img src='restart.png'></a> </td>
+			</tr>
+		</table>
+		
+		<table id="field" ></table>
+		
+		<div id="weaponsBar"></div>
+		<h1 class="red" id="h1Fail"></h1>
+		<h1 class="green" id="h1Success"></h1>
+		<br>
+		<h3>Overall avg: <span id="overallAvg"></span></h3>
+		<h2>Difficulty: <span id="difficulty"></span>%</h2>
+		<div class="difficult" onclick="restartWithDifficulty(50)" >50%</div>
+		<div class="difficult" onclick="restartWithDifficulty(55)" >55%</div>
+		<div class="difficult" onclick="restartWithDifficulty(60)" >60%</div>
+		<div class="difficult" onclick="restartWithDifficulty(65)" >65%</div>
+		<div class="difficult" onclick="restartWithDifficulty(70)" >70%</div>
+		<div class="difficult" onclick="restartWithDifficulty(75)" >75%</div>
+		<div class="difficult" onclick="restartWithDifficulty(80)" >80%</div>
+		<div class="difficult" onclick="restartWithDifficulty(85)" >85%</div>
+		<div class="difficult" onclick="restartWithDifficulty(90)" >90%</div>
+		<div class="difficult" onclick="restartWithDifficulty(95)" >95%</div>
+		<div class="difficult" onclick="restartWithDifficulty(100)">100%</div>
+		
+		<h2>Help:</h2>
+		<p>
+		Ваша задача проста - открыть все клетки. На каждой клетке указана вероятность успешно открыть клетку. 
+		Каждая ячейка содержит 5 клеток. В сумме необходимо открыть 45 клеток. Вероятность на каждую клетку ставится случайным образом. 
+		Максимальная вероятность определяется difficulty. Difficulty может быть установлена самостоятельно. Вероятность ячейки не может привышать 1000%. 
+		Поле Avg указывает среднюю вероятность со всего поля. Поле Sum указывает сумму стартовых вероятностей клеток. Score указывает на текущие очки которые вы можете тратить на инструменты.
+		В случаи если Вам не удалось открыть клетку, то она блокируется (становится серой). Для дальнейших попыток открыть её - необходимо её разблокировать.
+		<p>
+		<h2>Инуструменты:</h2>
+		<p>
+		Кликер - Попытка открыть клетку.<br>
+		Тестер - Попытка открыть клетку без блокировки в случаи неудачи.<br>
+		Триплет - Происходит три попытки открыть клетку, если хотя бы одна успешна - клетка открывается.<br>
+		Триспяти - Просходит пять попыток открыть клетку, если получилось больше успешных попыток, то клетка открывается.<br>
+		Плюсатор - Добавляет 10% к клетке.<br>
+		Умножатор - Умножает процент клетки на 2.<br>
+		Сумматор - Суммирует стартовые вероятности всех клетку и устанавливает её на выбранную клетку. Поле Sum.<br>
+		Инверт - Устанавливает значение клетки равной (100 - процент).<br>
+		Заменятор - Устанавливает новое значение клетки (зависит от сложности).<br>
+		Заменятор100 - Устанавливает новое значение клетки (от 1 до 100).<br>
+		Балансировка - Балансирует поле и выставляет всем клеткам средний процент. Поле Avg.<br>
+		Инвертор - Устанавливает значения всех клеток равной (100 - процент).<br>
+		Анблокер - Разблокировать клетку.<br>
+		Шансовый анблокер - Разблокировать клетку с вероятностью указанной на ней.<br>
+		Полный анблок - Разблокировать всё поле.<br>
+		</p>
+		<div class="credits">Logro 1.3</div>
+		<div class="credits">Made by Me</div>
+	</body>
+</html>
