@@ -342,7 +342,6 @@ function CBalance() {
 	
 	this.onSelect = function() {
 		if ( pay(this.cost) ) {
-			game.getScore().minus(this.cost);
 			percent = game.getField().getAvgPercent();
 			game.getField().cycle(function(cell) {
 				cell.setPercent(percent);
